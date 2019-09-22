@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-
+        steps {
         checkout scm
+     }
     }
         stage('Build Project') {
             steps {
@@ -14,8 +15,9 @@ pipeline {
         stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+        steps {
         docker.build("trydocker29/eureka-service")
+      }
     }
      /*   stage('--test--') {
             steps {
