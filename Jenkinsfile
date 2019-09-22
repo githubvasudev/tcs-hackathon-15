@@ -1,5 +1,4 @@
 pipeline {
-    def app
     agent any
     stages {
         stage('Clone repository') {
@@ -16,7 +15,7 @@ pipeline {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("trydocker29/eureka-service")
+        docker.build("trydocker29/eureka-service")
     }
      /*   stage('--test--') {
             steps {
