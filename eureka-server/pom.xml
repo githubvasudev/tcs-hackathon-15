@@ -96,7 +96,7 @@
                     <version>1.2.0</version>
                   </dependency>
                 </dependencies>
-           </plugin><! -- Extra code ends here -->
+           </plugin><!-- Extra code ends here -->
         </plugins>
     </build>
 
