@@ -11,7 +11,7 @@ node {
        def mvnHome = tool name: 'localmaven' , type: 'maven'
        withSonarQubeEnv('sonarqube') {
       // sh "${mvnHome}/bin/mvn sonar:sonar"
-       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     }
   }
 
