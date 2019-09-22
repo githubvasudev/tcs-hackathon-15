@@ -1,16 +1,10 @@
-pipeline {
-    agent any
-    stages {
+node {
         stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        steps {
         checkout scm
      }
-    }
         stage('Build Project') {
-            steps {
                 sh "mvn clean package"
-            }
         }
        
        stage('SonarQube analysis') {
@@ -37,5 +31,4 @@ pipeline {
                 sh "mvn package"
             }
         }*/
-    }
 }
