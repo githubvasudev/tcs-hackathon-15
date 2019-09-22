@@ -24,7 +24,7 @@ node {
       }
         
     stage('Publish') {
-     nexusPublisher nexusInstanceId: 'TCS_Hackathon_15', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/TCS_Hackathon_15/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'eureka-server', groupId: 'org.jenkins-ci.main', packaging: 'jar', version: '2.23']]]
+     nexusPublisher nexusInstanceId: 'TCS_Hackathon_15', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/TCS_Hackathon_15/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'eureka-server', groupId: 'org.exampledriven.eureka', packaging: 'jar', version: '1.5.6']]]
    }
     
      /*   stage('--test--') {
