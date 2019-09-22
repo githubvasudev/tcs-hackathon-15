@@ -4,13 +4,14 @@ node {
         checkout scm
      }
         stage('Build Project') {
-                sh "mvn clean package"
+                sh 'mvn clean package'
         }
        
        stage('SonarQube analysis') {
        def mvnHome = tool name: 'localmaven' , type: 'maven'
        withSonarQubeEnv('sonarqube') {
-       sh "${mvnHome}/bin/mvn sonar:sonar"
+      // sh "${mvnHome}/bin/mvn sonar:sonar"
+       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
     }
   }
 
