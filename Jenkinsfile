@@ -20,7 +20,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
        
-       app = docker.build("trydocker29/eureka-service")
+       sh 'docker build -t trydocker29/eureka-service:prod ./eureka-server'
       }
     
      /*   stage('--test--') {
