@@ -12,15 +12,14 @@ pipeline {
                 sh "mvn clean package"
             }
         }
+       
+       stage('SonarQube analysis') {
+       def mvnHome = tool name: 'localmaven' , type: 'maven'
+       withSonarQubeEnv('sonarqube') {
+       sh "${mvnHome}/bin/mvn sonar:sonar"
+    }
+  }
 
-       try {
-            stage("Building SONAR ...") {
-            sh './gradlew clean sonarqube'
-            }
-       } catch (e) {emailext attachLog: true, body: 'See attached log', subject: 'BUSINESS Build Failure', to: 'abc@gmail.com'
-         step([$class: 'WsCleanup'])
-         return
-      }
        /* stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
