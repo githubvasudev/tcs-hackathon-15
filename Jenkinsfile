@@ -1,4 +1,5 @@
 node {
+        def app
         stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
@@ -15,13 +16,13 @@ node {
     }
   }
 
-       /* stage('Build image') {
+       stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-       /* steps {
-        docker.build("trydocker29/eureka-service")
+       
+       app = docker.build("trydocker29/eureka-service")
       }
-    }*/
+    
      /*   stage('--test--') {
             steps {
                 sh "mvn test"
