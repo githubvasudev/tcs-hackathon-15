@@ -22,6 +22,10 @@ node {
        
        sh 'docker build -t trydocker29/eureka-service:prod ./eureka-server'
       }
+        
+    stage('Publish') {
+     nexusPublisher nexusInstanceId: 'TCS_Hackathon_15', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/TCS_Hackathon_15/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'eureka-server', groupId: 'org.jenkins-ci.main', packaging: 'jar', version: '2.23']]]
+   }
     
      /*   stage('--test--') {
             steps {
