@@ -12,13 +12,13 @@ pipeline {
                 sh "mvn clean"
             }
         }
-        stage('Build image') {
+       /* stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         steps {
         docker.build("trydocker29/eureka-service")
       }
-    }
+    }*/
      /*   stage('--test--') {
             steps {
                 sh "mvn test"
